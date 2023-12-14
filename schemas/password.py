@@ -2,11 +2,8 @@ from pydantic import BaseModel
 from datetime import date
 
 class Password(BaseModel):
-    id : int
-    length: int 
-    special_characters: int
-    numbers: int
-    capital_letters: int
+    passwordID : int
+    userID: int
     creation_password: date
     password: str
-    id_user: int
+    
