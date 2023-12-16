@@ -9,12 +9,13 @@ PASSWORD MANAGER es una API sencilla creada con fastAPI en Python para manejar c
 - [Ejecución](#ejecución)
 - [Documentación de la API](#documentación-de-la-api)
 
-## Requisitos
+# Requisitos
 
-# Python
-Asegúrate de tener Python instalado en tu sistema. Puedes descargar la última versión desde python.org.
+## Python
+Asegúrate de tener Python instalado en tu sistema. Puedes descargar la última versión desde https://www.python.org/
+Además de un IDE de su preferencia, en este caso se utilizó Visual Studio Code.
 
-# Entorno virtual (Opcional pero recomendado)
+## Entorno virtual (Opcional pero recomendado)
 Se recomienda el uso de un entorno virtual para aislar las dependencias del proyecto. Puedes crear y activar un entorno virtual de la siguiente manera:
 
 ```bash
@@ -28,7 +29,7 @@ python -m venv venv
 ```
 
 
-## Instalación
+# Instalación
 Para la correcta instalación de la API se debe tener instalado Python 3.8 o superior y pip. Se recomienda el uso de un entorno virtual para aislar las dependencias del proyecto. Puedes crear y activar un entorno virtual de la siguiente manera:
 
 ```bash
@@ -39,27 +40,27 @@ Para la correcta instalación de la API se debe tener instalado Python 3.8 o sup
 source venv/bin/activate
 ```
 
-# Dependencias del proyecto
+## Dependencias del proyecto
 Una vez que tengas tu entorno virtual activado, instala las dependecias del proyecto utilizando "requirements.txt"
 ```bash
 pip install -r requirements.txt
 ```
 
-## Ejecución
+# Ejecución
 Puedes ejecutar la aplicacion con el siguiente comando:
 ```bash
 uvicorn main:app --reload
 ```
 Este comando asume que el punto de entrada de tu aplicación es main y la instancia de la aplicación es app. Ajusta según sea necesario.
 
-La aplicación estará disponible en http://127.0.0.1:8000/. Puedes acceder a la documentación de la API en http://127.0.0.1:8000/docs
+Además la terminal te proporcionará la dirección de la API, para visualizar la documentación de la API debes ingresar a la dirección que te proporciona la terminal, y agregando "/docs" al final de la dirección.
 
-## Documentación de la API
+# Documentación de la API
 
-# Descripción
+## Descripción
 Esta API proporciona servicios relacionados con la gestion de usuarios autirozados. La autenticación se realiza mediante un token JWT que se obtiene al hacer login. Los servicios que se ofrecen son los siguientes:
 
-# Servicios de usuario
+## Servicios de usuario
 - Crear un usuario
     Para crear un usuario se debe hacer una petición POST a la ruta /users con el siguiente cuerpo:
     ```bash
@@ -80,7 +81,7 @@ Esta API proporciona servicios relacionados con la gestion de usuarios autirozad
     Para recuperar un usuario se debe hacer una petición PUT a la ruta /users/{username}, cabe resaltar que cada usuario tiene un atributo disabled que indica si el usuario esta deshabilitado o no, por lo que al recuperar un usuario se cambia el valor de este atributo a False.
 
 
-# Autenticación
+## Autenticación
 Para poder acceder a los servicios de la API es necesario autenticarse, teniendo en cuenta que ya se creo el usuario. Para ello se debe hacer una petición POST a la ruta /login con el siguiente cuerpo:
 ```bash
 {
@@ -90,7 +91,7 @@ Para poder acceder a los servicios de la API es necesario autenticarse, teniendo
 ```
 Si el usuario y la contraseña son correctos, se obtendrá un token JWT que se debe utilizar para acceder a los servicios de la API. Además todo el proceso de seguridad se implementó gracias a el OAuth2PasswordBearer de fastAPI. Para mayor información sobre el proceso de autenticación se puede consultar la documentación de fastAPI. https://fastapi.tiangolo.com/tutorial/security/simple-oauth2/
 
-# Servicios de contraseña
+## Servicios de contraseña
 Para acceder a cualquiera de los servicios de contraseña, el usuario debe haber hecho previamente un login, de lo contrario no podrá acceder a ellos. Además gracias a el Depends de fastAPI, se verifica que el token JWT sea valido y se captura la información del usuario que realiza la solicitud.
 
 - Consultar las contraseñan
