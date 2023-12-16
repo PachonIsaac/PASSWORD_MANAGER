@@ -23,6 +23,7 @@ def get_passwords(current_user: Annotated[UserModel, Depends(get_current_active_
     return JSONResponse(content=jsonable_encoder(result), status_code=200)
     
 
+#CREATE PASSWORD
 @password_router.post("/password", tags=["Password"], response_model=dict, status_code=201)
 def create_password(current_user: Annotated[UserModel, Depends(get_current_active_user)],
     length: int = Query(..., description="Length of the password"),
