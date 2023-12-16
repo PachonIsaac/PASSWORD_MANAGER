@@ -1,6 +1,3 @@
-#PASSWORD MANAGER
-#Isaac Pachón Zuleta
-
 from fastapi import FastAPI
 from config.database import Base, engine
 from middlewares.error_handler import ErrorHandler
